@@ -20,3 +20,5 @@ eureka:
     register-with-eureka: false
     #在启动时会从eurekaServer获取注册信息并缓存到本地，之后只会增量获取信息，false的话不缓存，每次全量获取
     fetch-registry: false
+  instance:
+    prefer-ip-address: true

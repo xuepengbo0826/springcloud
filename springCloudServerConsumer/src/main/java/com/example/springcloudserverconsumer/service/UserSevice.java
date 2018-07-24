@@ -1,6 +1,6 @@
 package com.example.springcloudserverconsumer.service;
 
-import com.example.springcloudserverconsumer.fallbackFactory.HystrixClientFallbackFactory;
+import com.example.springcloudserverconsumer.fallback.UserServiceFallBack;
 import com.example.springcloudserverconsumer.vo.User;
 import configuration.LoadConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Description:
  */
 @Service
-@FeignClient(name = "SpringCloudEurekaServerProducer", configuration = LoadConfiguration.class, fallbackFactory = HystrixClientFallbackFactory.class/*, fallback = UserServiceFallBack.class*/)
+@FeignClient(name = "SpringCloudEurekaServerProducer", configuration = LoadConfiguration.class, fallback = UserServiceFallBack.class)
 public interface UserSevice {
 
     @RequestMapping(value = "user/user", method = RequestMethod.GET)

@@ -11,4 +11,6 @@ public class SpringcloudeurekaserverApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringcloudeurekaserverApplication.class, args);
     }
+
+
 }
