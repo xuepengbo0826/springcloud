@@ -1,6 +1,5 @@
 package com.example.springcloudserverconsumer.service;
 
-import com.example.springcloudserverconsumer.fallback.UserServiceFallBack;
 import com.example.springcloudserverconsumer.fallbackFactory.HystrixClientFallbackFactory;
 import com.example.springcloudserverconsumer.vo.User;
 import configuration.LoadConfiguration;
