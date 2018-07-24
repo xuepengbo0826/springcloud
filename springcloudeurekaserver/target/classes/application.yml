@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: springCloudEurekaServer
+
+#eureka-client-service-url在init的时候存入了一个默认的defaultZone值：http://localhost:8761/eureka/
+#所以如果不设置，则eurekaServer的默认地址为http://localhost:8761/eureka/
+#eureka默认eurekaServer是一个特殊的eurekaClient，会有eurekaClient的全部特性，所以必须设置注册的自己（register-with-eureka）
+#属性为false，否则会报错无法在任何已知服务器上执行请求（Cannot execute request on any known server）
+#因为是eurekaServer，不用从eurekaServer获取注册信息
+#eureka-instance-prefer-ip-address：
+#         true（显示注册到eurekaServer的eurekaClient的ip地址）；
+#         false（显示注册到eurekaServer的eurekaClient的主机名）
+eureka:
+  client:
+    service-url:
+      defaultZone: http://master2:8082/eureka/  #,http://master3:8083/eureka/
+    register-with-eureka: true
+    #在启动时会从eurekaServer获取注册信息并缓存到本地，之后只会增量获取信息，false的话不缓存，每次全量获取
+    fetch-registry: true
+  instance:
+    #心跳间隔时间，默认30秒
+    leaseRenewalIntervalInSeconds: 3
+    #心跳超时时间
+    leaseExpirationDurationInSeconds: 9
+    prefer-ip-address: true
+    appname: master1
+  #自我保护，当一个节点不可用时
+  #server:
+  #  enableSelfPreservation: true
