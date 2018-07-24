@@ -1,0 +1,21 @@
+server:
+  port: 8087
+
+spring:
+  application:
+    name: SpringCloudZull
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://master1:8080/eureka/,http://master2:8082/eureka/ #,http://master3:8083/eureka/
+
+zuul:
+  routes:
+    users:
+      path: /users/**
+      serviceId: SpringCloudEurekaServerProducer
+
+ribbon:
+  eureka:
+    enabled: false

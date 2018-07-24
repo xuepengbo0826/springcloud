@@ -1,0 +1,9 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: SpringCloudEurekaServerProducer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://master1:8080/eureka/,http://master2:8082/eureka/ #,http://master3:8083/eureka/
