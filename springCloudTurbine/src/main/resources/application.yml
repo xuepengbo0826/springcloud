@@ -1,0 +1,21 @@
+server:
+ port: 7070
+
+spring:
+ application:
+  name: SpringCloudTurbine
+
+security:
+  basic:
+    enabled: false
+
+eureka:
+ client:
+  service-url:
+   defaultZone: http://localhost:8080/eureka/
+
+turbine:
+  aggregator:
+    clusterConfig: default
+  app-config: springCloudServerConsumer
+  clusterNameExpression: new String("default")
